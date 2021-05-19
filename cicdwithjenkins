@@ -37,10 +37,19 @@ aws s3 cp $warpath/$warfile s3://$bucketname/
 /opt/maven38/bin/mvn clean package 
 sleep 5
 
-warpath=/var/lib/jenkins/workspace/build-war-maven/target/
+warpath=/var/lib/jenkins/workspace/build-war-maven/target
 warfile=hello-world-war-1.0.0.war
-newwarfile=sparkhello-BUILD_NUMBER
+newwarfile=sparkhello-$BUILD_NUMBER
 bucketname=rctcloud
 mv $warpath/$warfile $warpath/$newwarfile
 aws s3 cp $warpath/$warfile s3://$bucketname/
+
+
+deploy the war from s3
+-----------------------
+copy to the tomcat /webapps
+
+
+
+
 
